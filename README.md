@@ -57,4 +57,4 @@ Check out the live version of my portfolio here: [Live Demo Link](#)
 
 ## Contact
 
-Feel free to get in touch with me via deepanshi.email@example.com or connect with me on [LinkedIn](#).
+Feel free to get in touch with me via deepanshirajput68@gmail.com or connect with me on [https://www.linkedin.com/in/deepanshirajput-webdev](#).
