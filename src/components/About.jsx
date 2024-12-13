@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import './About.css'; 
+import "./About.css"; 
+
 
 const About = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
