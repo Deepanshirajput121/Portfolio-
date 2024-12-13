@@ -1,0 +1,212 @@
+.scene {
+    perspective: 1000px;
+    flex-shrink: 0;
+    z-index: 0;
+    display: flex; /* To center the cube */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height of the screen */
+  }
+  
+  .cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotateCube 4s infinite ease-in-out;
+    transform: rotateY(0deg); /* Initial rotation */
+  }
+  
+  .cube-face {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    opacity: 1; /* Always visible */
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Initial soft glow */
+  }
+  
+  /* Shiny Effect on Cube Faces */
+  .cube-face i {
+    font-size: 50px;
+    color: white;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Light glow */
+    transition: all 0.3s ease;
+  }
+  
+  /* Specific Colors for Each Icon */
+  .github i {
+    color: #211f1f; /* GitHub Dark Gray */
+  }
+  
+  .css i {
+    color: #1572b6; /* CSS3 Blue */
+  }
+  
+  .js i {
+    color: #f7df1e; /* JavaScript Yellow */
+  }
+  
+  .react i {
+    color: #61dafb; /* React Blue */
+  }
+  
+  .node i {
+    color: #8cc84b; /* Node.js Green */
+  }
+  
+  .mongodb i {
+    color: #47a248; /* MongoDB Green */
+  }
+  
+  /* Positioning the cube faces */
+  .cube-face:nth-child(1) {
+    transform: rotateY(0deg) translateZ(100px);
+    z-index: 1; /* Front face */
+  }
+  .cube-face:nth-child(2) {
+    transform: rotateY(90deg) translateZ(100px);
+    z-index: 0; /* Back face */
+  }
+  .cube-face:nth-child(3) {
+    transform: rotateY(180deg) translateZ(100px);
+    z-index: 0; /* Back face */
+  }
+  .cube-face:nth-child(4) {
+    transform: rotateY(-90deg) translateZ(100px);
+    z-index: 0; /* Back face */
+  }
+  .cube-face:nth-child(5) {
+    transform: rotateX(90deg) translateZ(100px);
+    z-index: 0; /* Back face */
+  }
+  .cube-face:nth-child(6) {
+    transform: rotateX(-90deg) translateZ(100px);
+    z-index: 0; /* Back face */
+  }
+  
+  /* Animation to rotate the cube */
+  @keyframes rotateCube {
+    0%,
+    16.67% {
+      transform: rotateY(0deg);
+      .cube-face:nth-child(1) {
+        visibility: visible;
+      }
+      .cube-face:nth-child(2),
+      .cube-face:nth-child(3),
+      .cube-face:nth-child(4),
+      .cube-face:nth-child(5),
+      .cube-face:nth-child(6) {
+        visibility: hidden;
+      }
+    }
+    16.67%,
+    33.33% {
+      transform: rotateY(90deg);
+      .cube-face:nth-child(2) {
+        visibility: visible;
+      }
+      .cube-face:nth-child(1),
+      .cube-face:nth-child(3),
+      .cube-face:nth-child(4),
+      .cube-face:nth-child(5),
+      .cube-face:nth-child(6) {
+        visibility: hidden;
+      }
+    }
+    33.33%,
+    50% {
+      transform: rotateY(180deg);
+      .cube-face:nth-child(3) {
+        visibility: visible;
+      }
+      .cube-face:nth-child(1),
+      .cube-face:nth-child(2),
+      .cube-face:nth-child(4),
+      .cube-face:nth-child(5),
+      .cube-face:nth-child(6) {
+        visibility: hidden;
+      }
+    }
+    50%,
+    66.67% {
+      transform: rotateY(-90deg);
+      .cube-face:nth-child(4) {
+        visibility: visible;
+      }
+      .cube-face:nth-child(1),
+      .cube-face:nth-child(2),
+      .cube-face:nth-child(3),
+      .cube-face:nth-child(5),
+      .cube-face:nth-child(6) {
+        visibility: hidden;
+      }
+    }
+    66.67%,
+    83.33% {
+      transform: rotateX(90deg);
+      .cube-face:nth-child(5) {
+        visibility: visible;
+      }
+      .cube-face:nth-child(1),
+      .cube-face:nth-child(2),
+      .cube-face:nth-child(3),
+      .cube-face:nth-child(4),
+      .cube-face:nth-child(6) {
+        visibility: hidden;
+      }
+    }
+    83.33%,
+    100% {
+      transform: rotateX(-90deg);
+      .cube-face:nth-child(6) {
+        visibility: visible;
+      }
+      .cube-face:nth-child(1),
+      .cube-face:nth-child(2),
+      .cube-face:nth-child(3),
+      .cube-face:nth-child(4),
+      .cube-face:nth-child(5) {
+        visibility: hidden;
+      }
+    }
+  }
+  
+  /* Glow effect on hover or on face visibility */
+  .cube-face:hover {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 1); /* Stronger glow when hovered */
+    transform: scale(1.1); /* Slight zoom effect */
+    animation: glowingEffect 1.5s infinite ease-in-out; /* Pulsing effect */
+  }
+  
+  /* Pulsing Glow Animation */
+  @keyframes glowingEffect {
+    0% {
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+    }
+    100% {
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .cube {
+      width: 150px;
+      height: 150px;
+    }
+  
+    .cube-face i {
+      font-size: 40px;
+    }
+  }
+   

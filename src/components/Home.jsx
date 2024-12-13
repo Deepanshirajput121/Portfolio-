@@ -10,7 +10,7 @@ const roles = [
 ];
 
 const Home = () => {
-  const [displayedText, setDisplayedText] = useState(""); 
+  const [displayedText, setDisplayedText] = useState("");
   const [currentRole, setCurrentRole] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [charIndex, setCharIndex] = useState(0);
@@ -48,38 +48,102 @@ const Home = () => {
 
   return (
     <div>
-      <section className="home min-h-screen flex flex-col justify-center items-center lg:items-start lg:flex-row lg:justify-between lg:min-h-screen" id="home">
-        <div className="home-content text-center lg:text-left px-6 lg:px-20">
-          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mt-4 leading-none opacity-0 animate-slide-right">
-            Hi, It's me <span>Deepanshi</span>
-          </h1>
-          <h3 className="text-xl sm:text-2xl lg:text-3xl my-3 opacity-0 animate-slide-top">
+      <section
+        className="home min-h-screen flex flex-col justify-center items-center lg:items-start lg:flex-row lg:justify-between lg:min-h-screen py-10"
+        id="home"
+      >
+        <div className="home-content text-center lg:text-left px-6 lg:px-20 space-y-8">
+          <div className="text-center space-y-4">
+            {/* First Line */}
+            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mt-4 leading-snug">
+              {Array.from("Hi, It's me").map((letter, index) => (
+                <span
+                  key={index}
+                  className="inline-block transition-transform duration-200 ease-in-out text-white hover:animate-bounce"
+                  style={{
+                    color: "inherit", // Default text color
+                    cursor: "pointer",
+                  }}
+                  onMouseEnter={
+                    (e) => (e.target.style.color = "var(--main-color)") // Hover color
+                  }
+                  onMouseLeave={(e) => (e.target.style.color = "inherit")} // Reset color
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </span>
+              ))}
+            </h1>
+            <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold mt-2 leading-snug">
+              {Array.from("Deepanshi").map((letter, index) => (
+                <span
+                  key={index}
+                  className={`inline-block transition-transform duration-300 ease-in-out ${
+                    letter === "D" ? "text-main-color" : "text-white"
+                  }`}
+                  style={{
+                    color: letter === "D" ? "var(--main-color)" : "white", // Default color
+                    cursor: "pointer", // Interactivity
+                    animation: `slideIn 0.5s ease-in-out forwards`, // Apply animation class here
+                    animationDelay: `${index * 0.2}s`, // Delay for each letter
+                  }}
+                  onMouseEnter={(e) => {
+                    if (letter !== "D") {
+                      e.target.style.color = "var(--main-color)"; // Change color on hover
+                      e.target.style.transform = "translateY(-5px)"; // Move up on hover
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (letter !== "D") {
+                      e.target.style.color = "white"; // Reset color
+                      e.target.style.transform = "translateY(0px)"; // Reset position
+                    }
+                  }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </span>
+              ))}
+            </h2>
+          </div>
+
+          <h3 className="text-xl sm:text-2xl lg:text-3xl opacity-0 animate-slide-top mt-6">
             And I'm a{" "}
             <span className="text-main-color font-bold animate-pulse">
               {displayedText}
             </span>
           </h3>
-          <p className="text-xs sm:text-base lg:text-lg font-medium leading-5 sm:leading-6 lg:leading-7 max-w-[800px] opacity-0 animate-slide-left">
-            "I'm a web designer with extensive experience of over 1 year. My expertise includes website design, frontend development, and more. Additionally, I have completed full-stack development, mastering both backend and frontend technologies."
-          </p>
 
-          <div className="social-icons flex justify-center lg:justify-start gap-2 sm:gap-4 mb-6">
-            <a href="https://www.linkedin.com/in/deepanshirajput-webdev" className="text-xl sm:text-2xl hover:text-main-color">
+          <div className="social-icons flex justify-center lg:justify-start gap-4 mb-6">
+            <a
+              href="https://www.linkedin.com/in/deepanshirajput-webdev"
+              className="text-xl sm:text-2xl hover:text-main-color"
+            >
               <i className="bx bxl-linkedin"></i>
             </a>
-            <a href="https://Github.com/Deepanshirajput121 " className="text-xl sm:text-2xl hover:text-main-color">
+            <a
+              href="https://Github.com/Deepanshirajput121 "
+              className="text-xl sm:text-2xl hover:text-main-color"
+            >
               <i className="bx bxl-github"></i>
             </a>
-            <a href="mailto:deepanshirajput68@gmail.com" className="text-xl sm:text-2xl hover:text-main-color">
+            <a
+              href="mailto:deepanshirajput68@gmail.com"
+              className="text-xl sm:text-2xl hover:text-main-color"
+            >
               <i className="bx bxs-envelope"></i>
             </a>
-            <a href="tel:+919560726578" className="text-xl sm:text-2xl hover:text-main-color">
+            <a
+              href="tel:+919560726578"
+              className="text-xl sm:text-2xl hover:text-main-color"
+            >
               <i className="bx bxs-phone"></i>
             </a>
           </div>
 
-          <a href="#contact" className="btn inline-block bg-main-color text-white py-1 px-3 sm:py-2 sm:px-6 rounded-md hover:bg-opacity-90 transition">
-            More About Me
+          <a
+            href="/contact"
+            className="btn inline-block bg-main-color text-white py-2 px-6 rounded-md hover:bg-opacity-90 transition"
+          >
+            CONTACT ME
           </a>
         </div>
 

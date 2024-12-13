@@ -1,46 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
+import "./About.css"; // Assuming you add external styles here
 
 const About = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
     <section
-      className="about-section flex flex-col md:flex-row items-center justify-center py-12"
+      className="about-section flex flex-col md:flex-row items-center justify-center gap-x-8 py-12 px-6"
       id="about"
     >
-      {/* Image Section */}
-      <div className="home-img rounded-full">
-          <video
-            src="/videos/video2.mp4" // Correct path to your video
-            title="Deepanshi Animation"
-            className="flip-horizontalrelative top-12 w-[32vw] rounded-full transition-all duration-400 ease-in-out cursor-pointer"
-            autoPlay
-            loop
-            muted
-          >
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-      {/* Text Section */}
-      <div className="about-text w-full md:w-1/2 text-center md:text-left p-6">
-        <h2 className="text-7xl font-bold mb-4 mt-10">
-          About <span className="text-main-color">Me</span>
+      {/* About Section */}
+      <div className="about-text mt-40 w-full md:w-1/2 text-center md:text-left md:ml-8">
+        {/* Animated Title */}
+        <h2 className="text-7xl font-bold mb-4">
+          {Array.from("About Me").map((letter, index) => (
+            <span
+              key={index}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="inline-block transition-transform duration-300 hover:animate-bounce"
+              style={{
+                cursor: "pointer",
+                color: hoveredIndex === index ? "white" : "var(--main-color)",
+                transition: "color 0.3s ease",
+              }}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </span>
+          ))}
         </h2>
-        <h4 className="text-5xl font-semibold text-main-color mb-4 mt-9">
-          Full Stack Developer
-        </h4>
-        <p className="leading-7 mb-6 mt-9 text-xl">
-  I am a skilled web designer and full stack developer with over 1 year of experience in both frontend and backend development. My passion lies in creating captivating website designs and implementing seamless functionality. On the frontend, I specialize in building responsive and visually appealing websites using technologies like HTML, CSS, Tailwind CSS, and React. 
-</p>
-<p className="text-xl leading-7 mb-6">
-  On the backend, I am proficient in building efficient and scalable server-side applications using Node.js, Express, and MongoDB. I ensure smooth communication between the frontend and backend, and I prioritize performance, security, and data integrity in all my projects. My goal is to deliver complete web solutions that not only look great but also perform exceptionally well, providing an intuitive experience for end-users. With each project, I tailor my approach to meet the client’s needs and focus on delivering high-quality results.
-</p>
 
+        {/* Description */}
+        <p className="text-xl leading-7 mb-6">
+          I am a skilled web designer and <strong>full stack developer</strong>{" "}
+          with over 1 year of experience in both{" "}
+          <span className="text-[var(--main-color)]">frontend</span> and{" "}
+          <span className="text-[var(--main-color)]">backend</span> development.
+          My passion lies in creating captivating website designs and
+          implementing seamless functionality. On the frontend, I specialize in
+          building responsive and visually appealing websites using technologies
+          like <strong>HTML, CSS, Tailwind CSS,</strong> and{" "}
+          <strong>React</strong>.
+        </p>
+        <p className="text-xl leading-7 mb-6">
+          On the backend, I am proficient in building efficient and scalable
+          server-side applications using <strong>Node.js</strong>,{" "}
+          <strong>Express</strong>, and <strong>MongoDB</strong>. I ensure
+          smooth communication between the frontend and backend, prioritizing{" "}
+          <span className="text-[var(--main-color)]">performance</span>,{" "}
+          <span className="text-[var(--main-color)]">security</span>, and{" "}
+          <span className="text-[var(--main-color)]">data integrity</span> in
+          all my projects. My goal is to deliver complete web solutions that
+          look great and perform exceptionally, providing an intuitive
+          experience for users.
+        </p>
+
+        {/* Button */}
         <a
           href="#contact"
-          className="btn inline-block bg-main-color text-white py-2 px-6 rounded-md hover:bg-opacity-90 transition"
+          className="btn inline-block bg-[var(--main-color)] text-white py-3 px-8 rounded-md shadow-md hover:bg-opacity-90 transition-all"
         >
           More About Me
         </a>
+      </div>
+
+      {/* Animated Skills Cube */}
+      <div className="scene w-full md:w-1/2 mt-12 md:mt-0">
+        <div className="cube">
+          <div className="cube-face github">
+            <i className="fab fa-github"></i> {/* GitHub Icon */}
+          </div>
+          <div className="cube-face css">
+            <i className="fab fa-css3-alt"></i> {/* CSS Icon */}
+          </div>
+          <div className="cube-face js">
+            <i className="fab fa-js"></i> {/* JavaScript Icon */}
+          </div>
+          <div className="cube-face react">
+            <i className="fab fa-react"></i> {/* React Icon */}
+          </div>
+          <div className="cube-face node">
+            <i className="fab fa-node"></i> {/* Node.js Icon */}
+          </div>
+          <div className="cube-face mongodb">
+            <i className="fas fa-database"></i> {/* MongoDB Icon */}
+          </div>
+        </div>
       </div>
     </section>
   );

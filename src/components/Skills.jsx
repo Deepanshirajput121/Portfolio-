@@ -1,120 +1,159 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "./Skills.css";
 
 const Skills = () => {
+  const technicalSkills = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "Express.js",
+    "Next.js",
+    "MongoDB",
+    "Git",
+    "GitHub",
+    "Thunder Client",
+    "Vite",
+  ];
+
+  const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSkillIndex(
+        (prevIndex) => (prevIndex + 1) % technicalSkills.length
+      );
+    }, 2000); // Change skill every 2 seconds
+    return () => clearInterval(interval);
+  }, [technicalSkills.length]);
+
   return (
-    <section className="skill py-8 mt-20">
-    <h1 className="text-7xl font-bold text-center mb-8">My <span className="text-main-color">Skills</span></h1>
-    
+    <section className="skill py-8 mt-20 relative skills-container">
+      <h2 className="text-7xl font-bold">
+        {Array.from("Skills & Activities").map((letter, index) => (
+          <span
+            key={index}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+            className="inline-block transition-transform duration-300"
+            style={{
+              cursor: "pointer",
+              transform:
+                hoveredIndex === index ? "translateY(-10px)" : "translateY(0)",
+              color: hoveredIndex === index ? "white" : "var(--main-color)",
+              transition: "all 0.3s ease",
+            }}
+          >
+            {letter === " " ? "\u00A0" : letter}
+          </span>
+        ))}
+      </h2>
 
-       {/* Technical Skills */}
-       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-6">Technical Skills</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-          {/* Frontend Skills */}
-          <div className="bar">
-            <i className="bx bxl-html5 text-5xl" style={{ color: '#e34c26' }}></i>
-            <span className="text-lg font-bold text-white">HTML</span>
-            <div className="progress-line bg-gray-200 rounded-full h-2 mt-2">
-              <div className="bg-indigo-600 h-full w-11/12"></div>
+      <div className="flex ml-60 mr-40 justify-between items-center relative">
+        {/* Left side with rotating cube */}
+        <div className="flex justify-start items-center relative h-[350px] w-[350px] mx-8 ">
+          <div className="skills-3d-cube hover-animation">
+            <div className="skill-face front">
+              <p>{technicalSkills[currentSkillIndex]}</p>
             </div>
-          </div>
-
-          <div className="bar">
-            <i className="bx bxl-css3 text-5xl" style={{ color: '#264de4' }}></i>
-            <span className="text-lg font-bold text-white">CSS</span>
-            <div className="progress-line bg-gray-200 rounded-full h-2 mt-2">
-              <div className="bg-indigo-600 h-full w-10/12"></div>
+            <div className="skill-face back">
+              <p>
+                {
+                  technicalSkills[
+                    (currentSkillIndex + 1) % technicalSkills.length
+                  ]
+                }
+              </p>
             </div>
-          </div>
-
-          <div className="bar">
-            <i className="bx bxl-javascript text-5xl" style={{ color: '#f7df1e' }}></i>
-            <span className="text-lg font-bold text-white">JavaScript</span>
-            <div className="progress-line bg-gray-200 rounded-full h-2 mt-2">
-              <div className="bg-indigo-600 h-full w-9/12"></div>
+            <div className="skill-face left">
+              <p>
+                {
+                  technicalSkills[
+                    (currentSkillIndex + 2) % technicalSkills.length
+                  ]
+                }
+              </p>
             </div>
-          </div>
-
-          <div className="bar">
-            <i className="bx bxl-react text-5xl" style={{ color: '#61dbfb' }}></i>
-            <span className="text-lg font-bold text-white">React</span>
-            <div className="progress-line bg-gray-200 rounded-full h-2 mt-2">
-              <div className="bg-indigo-600 h-full w-8/12"></div>
+            <div className="skill-face right">
+              <p>
+                {
+                  technicalSkills[
+                    (currentSkillIndex + 3) % technicalSkills.length
+                  ]
+                }
+              </p>
             </div>
-          </div>
-
-          {/* Backend Skills */}
-          <div className="bar">
-            <i className="bx bxl-nodejs text-5xl" style={{ color: '#68a063' }}></i>
-            <span className="text-lg font-bold text-white">Node.js</span>
-            <div className="progress-line bg-gray-200 rounded-full h-2 mt-2">
-              <div className="bg-indigo-600 h-full w-9/12"></div>
+            <div className="skill-face top">
+              <p>
+                {
+                  technicalSkills[
+                    (currentSkillIndex + 4) % technicalSkills.length
+                  ]
+                }
+              </p>
             </div>
-          </div>
-
-          <div className="bar">
-            <i className="bx bxl-express text-5xl" style={{ color: '#000000' }}></i>
-            <span className="text-lg font-bold text-white">Express.js</span>
-            <div className="progress-line bg-gray-200 rounded-full h-2 mt-2">
-              <div className="bg-indigo-600 h-full w-9/12"></div>
-            </div>
-          </div>
-
-          <div className="bar">
-            <i className="bx bxl-mongodb text-5xl" style={{ color: '#47a248' }}></i>
-            <span className="text-lg font-bold text-white">MongoDB</span>
-            <div className="progress-line bg-gray-200 rounded-full h-2 mt-2">
-              <div className="bg-indigo-600 h-full w-8/12"></div>
+            <div className="skill-face bottom">
+              <p>
+                {
+                  technicalSkills[
+                    (currentSkillIndex + 5) % technicalSkills.length
+                  ]
+                }
+              </p>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Professional Skills */}
-      <div className="container mx-auto px-4 mt-12">
-        <h2 className="text-3xl font-bold mb-6">Professional Skills</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {/* Radial bars */}
-          <div className="radial-bar flex flex-col items-center">
-            <svg className="w-24 h-24 mb-4" viewBox="0 0 200 200">
-              <circle className="text-gray-200" cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="10" fill="none"></circle>
-              <circle className="path-1 text-indigo-600" cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="10" strokeDasharray="400" strokeDashoffset="40"></circle>
-            </svg>
-            <div className="percentage text-lg font-semibold">90%</div>
-            <div className="text-lg font-bold">Creativity</div>
+        {/* Right side with professional skills written text */}
+        <div className="container mr-9 mx-auto px-4 mt-5 w-[70%] lg:w-[50%] lg:pl-20 skills-list">
+          <div className="grid grid-cols-1 gap-8">
+            <div className="skill-item">
+              <p className="text-lg font-light mt-2">
+                <span className="font-semibold">TECHNICAL SKILLS:</span> Skilled in both
+                <span className="text-[var(--main-color)]"> Frontend Development </span>
+                and
+                <span className="text-[var(--main-color)]"> Backend Development</span>.
+                Expertise in technologies like:
+                <span className="text-[var(--main-color)]"> HTML</span>,
+                <span className="text-[var(--main-color)]"> CSS</span>,
+                <span className="text-[var(--main-color)]"> JavaScript ES6+</span>,
+                <span className="text-[var(--main-color)]"> React.js</span>,
+                <span className="text-[var(--main-color)]"> Tailwind CSS</span>,
+                <span className="text-[var(--main-color)]"> Next.js</span>,
+                <span className="text-[var(--main-color)]"> Vite</span>,
+                <span className="text-[var(--main-color)]"> Node.js</span>,
+                <span className="text-[var(--main-color)]"> Express.js</span>, and
+                <span className="text-[var(--main-color)]"> MongoDB</span>.
+                Experienced with tools like
+                <span className="text-[var(--main-color)]"> Git</span>,
+                <span className="text-[var(--main-color)]"> GitHub</span>, and
+                <span className="text-[var(--main-color)]"> Thunder Client</span>.
+                Skilled in creating responsive and scalable web applications.
+              </p>
+
+              <p className="text-lg font-light mt-6">
+                <span className="font-semibold">PROJECT HIGHLIGHTS:</span> Built several full-stack
+                projects, including: an Amazon clone, a Netflix clone, a Spotify clone, and a
+                service-based Real Vision website. Successfully integrated features like API handling,
+                database connectivity, authentication, and more. Each project showcases in-depth
+                knowledge of web development.
+              </p>
+            </div>
+
+            <div className="skill-item">
+              <p className="text-lg font-light mt-2">
+                <span className="font-semibold">SOFT SKILLS:</span>
+                <span className="text-[var(--main-color)]"> Effective Communication</span>,
+                <span className="text-[var(--main-color)]"> Teamwork</span>,
+                <span className="text-[var(--main-color)]"> Team Collaboration</span>, Presentation,
+                Time Management, Leadership, Ability to troubleshoot,
+                <span className="text-[var(--main-color)]"> Problem-Solving Skills</span>, and
+                <span className="text-[var(--main-color)]"> Critical Thinking</span>.
+              </p>
+            </div>
           </div>
-          {/* Communication */}
-        
-          <div className="radial-bar flex flex-col items-center">
-            <svg className="w-24 h-24 mb-4" viewBox="0 0 200 200">
-              <circle className="text-gray-200" cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="10" fill="none"></circle>
-              <circle className="path-1 text-indigo-600" cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="10" strokeDasharray="400" strokeDashoffset="40"></circle>
-            </svg>
-            <div className="percentage text-lg font-semibold">65%</div>
-            <div className="text-lg font-bold">Communication</div>
-          </div> 
-
-
-          {/* Problem Solving */}
-          <div className="radial-bar flex flex-col items-center">
-            <svg className="w-24 h-24 mb-4" viewBox="0 0 200 200">
-              <circle className="text-gray-200" cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="10" fill="none"></circle>
-              <circle className="path-1 text-indigo-600" cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="10" strokeDasharray="400" strokeDashoffset="40"></circle>
-            </svg>
-            <div className="percentage text-lg font-semibold">75%</div>
-            <div className="text-lg font-bold">Problem Solving</div>
-          </div> 
-
-          {/* Teamwork */}
-          <div className="radial-bar flex flex-col items-center">
-            <svg className="w-24 h-24 mb-4" viewBox="0 0 200 200">
-              <circle className="text-gray-200" cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="10" fill="none"></circle>
-              <circle className="path-1 text-indigo-600" cx="100" cy="100" r="80" stroke="currentColor" strokeWidth="10" strokeDasharray="400" strokeDashoffset="40"></circle>
-            </svg>
-            <div className="percentage text-lg font-semibold">85%</div>
-            <div className="text-lg font-bold">Teamwork</div>
-          </div>
-
         </div>
       </div>
     </section>

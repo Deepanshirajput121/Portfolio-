@@ -21,14 +21,19 @@ function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full px-8 sm:px-[5%] py-6 bg-black bg-opacity-30 backdrop-blur-lg flex justify-between items-center z-50">
       {/* Logo */}
-      <a href="/home" className="logo text-white text-2x1 font-bold">
-        {"Deepanshi"}
-        <span
-          className="main-color text-white p-4"
-          style={{ color: "var(--main-color)" }}
+      <a
+        href="/home"
+        className="logo flex items-center gap-2 text-2xl font-bold tracking-wide"
+      >
+        {/* Circular Icon for "D" */}
+        <div
+          className="rounded-full bg-main-color text-white w-10 h-10 flex items-center justify-center text-xl"
+          style={{ backgroundColor: "var(--main-color)" }}
         >
-          Rajput
-        </span>
+          D
+        </div>
+        {/* Text for "eepanshi" */}
+        <span style={{ color: "white", letterSpacing: "0.1em" }}>Deepanshi</span>
       </a>
 
       {/* Menu Icon for Mobile */}
@@ -63,12 +68,6 @@ function Navbar() {
           className="text-white block py-2 lg:py-0 hover: transition duration-200"
         >
           Skills
-        </Link>
-        <Link
-          to="/projects"
-          className="text-white block py-2 lg:py-0 hover: transition duration-200"
-        >
-          Projects
         </Link>
         <Link
           to="/contact"
