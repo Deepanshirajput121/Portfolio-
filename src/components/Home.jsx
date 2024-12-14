@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import "./Home.css"; // Assuming your CSS file is linked
+import React, { useState, useEffect } from "react";
+import Loader from "./Loader"; // Loader component import karein
+import "./Home.css"; // CSS file for Home
 
 const roles = [
   "Frontend Developer",
@@ -10,12 +11,22 @@ const roles = [
 ];
 
 const Home = () => {
+  const [loading, setLoading] = useState(true); // Loader state
   const [displayedText, setDisplayedText] = useState("");
   const [currentRole, setCurrentRole] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [charIndex, setCharIndex] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
+  // Handle loader logic
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Typing effect logic
   useEffect(() => {
     const handleTyping = () => {
       const currentText = roles[currentRole];
@@ -46,6 +57,12 @@ const Home = () => {
     return () => clearTimeout(typingInterval);
   }, [charIndex, isDeleting, typingSpeed, currentRole]);
 
+  // Show loader while loading
+  if (loading) {
+    return <Loader />;
+  }
+
+  // Main Home content after loader
   return (
     <div>
       <section
@@ -81,21 +98,21 @@ const Home = () => {
                     letter === "D" ? "text-main-color" : "text-white"
                   }`}
                   style={{
-                    color: letter === "D" ? "var(--main-color)" : "white", // Default color
-                    cursor: "pointer", // Interactivity
-                    animation: `slideIn 0.5s ease-in-out forwards`, // Apply animation class here
-                    animationDelay: `${index * 0.2}s`, // Delay for each letter
+                    color: letter === "D" ? "var(--main-color)" : "white",
+                    cursor: "pointer",
+                    animation: `slideIn 0.5s ease-in-out forwards`,
+                    animationDelay: `${index * 0.2}s`,
                   }}
                   onMouseEnter={(e) => {
                     if (letter !== "D") {
-                      e.target.style.color = "var(--main-color)"; // Change color on hover
-                      e.target.style.transform = "translateY(-5px)"; // Move up on hover
+                      e.target.style.color = "var(--main-color)";
+                      e.target.style.transform = "translateY(-5px)";
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (letter !== "D") {
-                      e.target.style.color = "white"; // Reset color
-                      e.target.style.transform = "translateY(0px)"; // Reset position
+                      e.target.style.color = "white";
+                      e.target.style.transform = "translateY(0px)";
                     }
                   }}
                 >
