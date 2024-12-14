@@ -193,19 +193,6 @@ span {
   }
 }
 
-@keyframes slideAndFadeIn {
-  0% {
-    transform: translate(-50px, 20px); /* Horizontal + Vertical */
-    opacity: 0; /* Initially hidden */
-  }
-  100% {
-    transform: translate(0, 0); /* At original position */
-    opacity: 1; /* Fully visible */
-  }
-}
-.animate-slide-and-fade {
-  animation: slideAndFadeIn 1s ease-out;
-}
 
 
 
