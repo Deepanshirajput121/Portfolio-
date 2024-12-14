@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Loader from "./Loader"; // Assuming your Loader component is in the same directory
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,16 @@ const Contact = () => {
 
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
+  const [loading, setLoading] = useState(true); // Loader state
+
+  // Handle loader logic
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Show the loader for 2 seconds
+    return () => clearTimeout(timer); // Clean up on unmount
+  }, []);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -20,6 +31,11 @@ const Contact = () => {
     console.log(formData);
     // Additional form submission logic can go here
   };
+
+  // Show loader while loading
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <section className="contact" id="contact">

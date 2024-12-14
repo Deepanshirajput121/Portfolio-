@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Loader from "./Loader"; // Assume you have a Loader component
 import "./Skills.css";
 
 const Skills = () => {
@@ -19,15 +20,53 @@ const Skills = () => {
 
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [loading, setLoading] = useState(true); // Loader state
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSkillIndex(
-        (prevIndex) => (prevIndex + 1) % technicalSkills.length
-      );
-    }, 2000); // Change skill every 2 seconds
-    return () => clearInterval(interval);
-  }, [technicalSkills.length]);
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Show loader for 1 second
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Typing effect logic
+  const [currentText, setCurrentText] = useState("");
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
+  useEffect(() => {
+    const handleTyping = () => {
+      if (!isDeleting) {
+        if (charIndex < technicalSkills[currentSkillIndex].length) {
+          setCurrentText((prev) => prev + technicalSkills[currentSkillIndex].charAt(charIndex));
+          setCharIndex((prev) => prev + 1);
+          setTypingSpeed(150);
+        } else {
+          setIsDeleting(true);
+          setTypingSpeed(1000);
+        }
+      } else {
+        if (charIndex > 0) {
+          setCurrentText((prev) => prev.slice(0, -1));
+          setCharIndex((prev) => prev - 1);
+          setTypingSpeed(100);
+        } else {
+          setIsDeleting(false);
+          setCurrentSkillIndex((prev) => (prev + 1) % technicalSkills.length);
+          setTypingSpeed(300);
+        }
+      }
+    };
+
+    const typingInterval = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(typingInterval);
+  }, [charIndex, isDeleting, typingSpeed, currentSkillIndex]);
+
+  if (loading) {
+    return <Loader />; // Show loader while loading
+  }
 
   return (
     <section className="skill py-8 mt-20 relative skills-container">
@@ -53,55 +92,25 @@ const Skills = () => {
 
       <div className="flex ml-60 mr-40 justify-between items-center relative">
         {/* Left side with rotating cube */}
-        <div className="flex justify-start items-center relative h-[350px] w-[350px] mx-8 ">
+        <div className="flex justify-start items-center relative h-[350px] w-[350px] mx-8">
           <div className="skills-3d-cube hover-animation">
             <div className="skill-face front">
-              <p>{technicalSkills[currentSkillIndex]}</p>
+              <p>{currentText}</p> {/* Typing animation for skills */}
             </div>
             <div className="skill-face back">
-              <p>
-                {
-                  technicalSkills[
-                    (currentSkillIndex + 1) % technicalSkills.length
-                  ]
-                }
-              </p>
+              <p>{technicalSkills[(currentSkillIndex + 1) % technicalSkills.length]}</p>
             </div>
             <div className="skill-face left">
-              <p>
-                {
-                  technicalSkills[
-                    (currentSkillIndex + 2) % technicalSkills.length
-                  ]
-                }
-              </p>
+              <p>{technicalSkills[(currentSkillIndex + 2) % technicalSkills.length]}</p>
             </div>
             <div className="skill-face right">
-              <p>
-                {
-                  technicalSkills[
-                    (currentSkillIndex + 3) % technicalSkills.length
-                  ]
-                }
-              </p>
+              <p>{technicalSkills[(currentSkillIndex + 3) % technicalSkills.length]}</p>
             </div>
             <div className="skill-face top">
-              <p>
-                {
-                  technicalSkills[
-                    (currentSkillIndex + 4) % technicalSkills.length
-                  ]
-                }
-              </p>
+              <p>{technicalSkills[(currentSkillIndex + 4) % technicalSkills.length]}</p>
             </div>
             <div className="skill-face bottom">
-              <p>
-                {
-                  technicalSkills[
-                    (currentSkillIndex + 5) % technicalSkills.length
-                  ]
-                }
-              </p>
+              <p>{technicalSkills[(currentSkillIndex + 5) % technicalSkills.length]}</p>
             </div>
           </div>
         </div>
@@ -114,8 +123,8 @@ const Skills = () => {
                 <span className="font-semibold">TECHNICAL SKILLS:</span> Skilled in both
                 <span className="text-[var(--main-color)]"> Frontend Development </span>
                 and
-                <span className="text-[var(--main-color)]"> Backend Development</span>.
-                Expertise in technologies like:
+                <span className="text-[var(--main-color)]"> Backend Development</span>. Expertise
+                in technologies like:
                 <span className="text-[var(--main-color)]"> HTML</span>,
                 <span className="text-[var(--main-color)]"> CSS</span>,
                 <span className="text-[var(--main-color)]"> JavaScript ES6+</span>,
@@ -125,12 +134,12 @@ const Skills = () => {
                 <span className="text-[var(--main-color)]"> Vite</span>,
                 <span className="text-[var(--main-color)]"> Node.js</span>,
                 <span className="text-[var(--main-color)]"> Express.js</span>, and
-                <span className="text-[var(--main-color)]"> MongoDB</span>.
-                Experienced with tools like
+                <span className="text-[var(--main-color)]"> MongoDB</span>. Experienced with tools
+                like
                 <span className="text-[var(--main-color)]"> Git</span>,
                 <span className="text-[var(--main-color)]"> GitHub</span>, and
-                <span className="text-[var(--main-color)]"> Thunder Client</span>.
-                Skilled in creating responsive and scalable web applications.
+                <span className="text-[var(--main-color)]"> Thunder Client</span>. Skilled in
+                creating responsive and scalable web applications.
               </p>
 
               <p className="text-lg font-light mt-6">

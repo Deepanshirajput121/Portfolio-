@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./About.css"; 
-
+import Loader from "./Loader";
 
 const About = () => {
+  const [loading, setLoading] = useState(true); // Loader state
+
+  useEffect(() => {
+    // Loader logic with a 1-second delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <section

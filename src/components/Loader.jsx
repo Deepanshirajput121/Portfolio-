@@ -1,11 +1,15 @@
 // Loader.js
 import React from "react";
-import "./Loader.css"; // CSS ka file jisme loader ka design hoga
+import "./Loader.css";
 
 const Loader = () => {
   return (
     <div className="loader-container">
-      <div className="spinner"></div>
+      <div className="ripple-circle">
+        <div className="ripple"></div>
+        <div className="ripple"></div>
+        <div className="ripple"></div>
+      </div>
     </div>
   );
 };
