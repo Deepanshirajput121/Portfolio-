@@ -129,7 +129,7 @@ const Home = () => {
             </span>
           </h3>
 
-          <div className="social-icons flex justify-center lg:justify-start gap-4 mb-6">
+          <div className="social-icons flex flex-wrap justify-center  lg:justify-start gap-4 mb-6">
             <a
               href="https://www.linkedin.com/in/deepanshirajput-webdev"
               className="text-xl sm:text-2xl hover:text-main-color"

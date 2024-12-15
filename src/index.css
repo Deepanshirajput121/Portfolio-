@@ -26,13 +26,6 @@
   --text-color: white; /* Text color */
   --main-color: #00aaff; /* Main color */
 }
-.main-color {
-    color: #00aaff; /* Main color */
-    text-shadow: 
-        0 0 5px rgba(0, 170, 255, 0.8),  /* Light blue glow */
-        0 0 10px rgba(0, 170, 255, 0.6), /* Stronger glow */
-        0 0 15px rgba(0, 170, 255, 0.4); /* Even stronger glow */
-}
 
 html,
 body {
@@ -53,3 +46,21 @@ body {
   background: black; /* Apply background color */
   color: var(--text-color); /* Apply text color */
 }
+
+/* For sliding effect */
+.navbar {
+  transition: height 0.3s ease-in-out;
+}
+
+.navbar a {
+  font-size: 18px;
+}
+
+.navbar .block {
+  display: block;
+}
+
+.navbar .hidden {
+  display: none;
+}
+

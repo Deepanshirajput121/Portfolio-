@@ -64,9 +64,7 @@
 span {
   color: var(--main-color);
 }
-/* .logo span {
-  color: var(--main-color);
-} */
+
 .home-content h3 {
   margin-bottom: 2rem;
   margin-top: 1rem;
@@ -95,15 +93,6 @@ span {
   }
 }
 
-.home-content p {
-  font-size: 1.8rem;
-  font-weight: 500;
-  line-height: 1.8;
-  max-width: 1000px;
-  opacity: 0;
-  animation: slideLeft 1s ease forwards;
-  animation-delay: 1s;
-}
 
 /* In your styles.css or any external CSS file */
 @keyframes slideIn {
@@ -140,6 +129,15 @@ span {
   box-shadow: 0 0 25px var(--main-color);
   background-color: var(--main-color);
 }
+
+/* For screens less than or equal to 500px */
+/* @media (max-width: 500px) {
+  .social-icons a,
+  .btn {
+    transform: scale(calc(0.5 + 0.5 * (100vw / 500)));
+  }
+} */
+
 .btn {
   display: inline-block;
   padding: 1rem 2.8rem;
@@ -173,11 +171,7 @@ span {
     font-size: 1.25rem; /* Smaller size for subheading */
   }
 
-  .home-content p {
-    font-size: 0.75rem; /* Smaller paragraph font size */
-    max-width: 90vw; /* Restrict paragraph width for small screens */
-    padding: 0 1rem; /* Add padding to avoid text touching screen edges */
-  }
+ 
 
   .social-icons a {
     font-size: 1.5rem; /* Smaller icons for better alignment */
