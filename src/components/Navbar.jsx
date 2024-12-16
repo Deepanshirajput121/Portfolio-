@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { RiPlayListAddLine } from "react-icons/ri"; // Correct icon import
-
 import "./Home.css"; // Aap apni CSS file ka use karenge
 
 function Navbar() {

@@ -6,7 +6,8 @@ import Home from "./components/Home";
 import About from './components/About';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
-import './index.css'; // Ensure this is included in your index.js or App.js
+import "./index.css";
+
 
 
 
