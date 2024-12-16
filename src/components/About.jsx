@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./About.css"; 
 import Loader from "./Loader";
+import './About.css';
+
 
 const About = () => {
   const [loading, setLoading] = useState(true); // Loader state
