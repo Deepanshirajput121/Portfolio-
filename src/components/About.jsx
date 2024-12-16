@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Loader from "./Loader";
-import './About.css';
+import './about.css';
 
 
 const About = () => {
