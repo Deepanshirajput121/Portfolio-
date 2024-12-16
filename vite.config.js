@@ -8,4 +8,5 @@ export default defineConfig({
       overlay: false,
     },
   },
+  base: './', // Relative path for root domain hosting
 });
