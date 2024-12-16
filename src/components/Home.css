@@ -36,11 +36,7 @@
   border-bottom: 3px solid var(--main-color); /* Underline color on hover or active */
 }
 
-#menu-icon {
-  font-size: 3.6rem; /* Size of the menu icon */
-  color: var(--main-color); /* Color for the menu icon */
-  display: none; /* Hides the menu icon by default */
-}
+
 
 .flip-horizontal {
   transform: scaleX(-1); /* Flips the video horizontally */
@@ -74,7 +70,7 @@ span {
   animation-delay: 0.7s;
 }
 .home-content h1 {
-  font-size: 7rem;
+  font-size: 5rem;
   font-weight: 700;
   margin-top: 1.5rem;
   line-height: 1;
@@ -130,13 +126,6 @@ span {
   background-color: var(--main-color);
 }
 
-/* For screens less than or equal to 500px */
-/* @media (max-width: 500px) {
-  .social-icons a,
-  .btn {
-    transform: scale(calc(0.5 + 0.5 * (100vw / 500)));
-  }
-} */
 
 .btn {
   display: inline-block;
@@ -171,10 +160,33 @@ span {
     font-size: 1.25rem; /* Smaller size for subheading */
   }
 
- 
-
   .social-icons a {
-    font-size: 1.5rem; /* Smaller icons for better alignment */
+    font-size: 1rem; /* Even smaller font size for icons */
+    padding: 0.4rem; /* Reduce padding to shrink the circle size */
+    width: 1rem;  /* Smaller width and height to shrink the circle */
+    height: 1rem; /* Equal width and height to maintain circular shape */
+    background-color: #f0f0f0; /* Background color for the circle */
+    border-radius: 50%; /* Make it circular */
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Prevent icons from shrinking */
+  }
+  .social-icons {
+    display: flex;
+    justify-content: space-evenly; /* Ensure icons are spaced out evenly */
+    align-items: center;
+ 
+    flex-wrap: nowrap; /* Prevent icons from wrapping to the next line */
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+    align-items: center;     /* Center the button vertically (if needed) */
+    width: 100%;             /* Ensure it takes up full width */
+    height: 100vh;           /* Optional: If you want the button in the middle of the screen vertically */
   }
 
   .btn {

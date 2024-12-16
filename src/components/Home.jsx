@@ -72,7 +72,7 @@ const Home = () => {
         <div className="home-content text-center lg:text-left px-6 lg:px-20 space-y-8">
           <div className="text-center space-y-4">
             {/* First Line */}
-            <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold mt-4 leading-snug">
+            <h1 className="text-2xl sm:text-3x1 lg:text-5x1 font-bold mt-4 leading-snug">
               {Array.from("Hi, It's me").map((letter, index) => (
                 <span
                   key={index}
@@ -129,7 +129,7 @@ const Home = () => {
             </span>
           </h3>
 
-          <div className="social-icons flex flex-wrap justify-center  lg:justify-start gap-4 mb-6">
+          <div className="social-icons flex  justify-center lg:justify-start gap-0 mb-1">
             <a
               href="https://www.linkedin.com/in/deepanshirajput-webdev"
               className="text-xl sm:text-2xl hover:text-main-color"
@@ -156,12 +156,14 @@ const Home = () => {
             </a>
           </div>
 
-          <a
-            href="/contact"
-            className="btn inline-block bg-main-color text-white py-2 px-6 rounded-md hover:bg-opacity-90 transition"
-          >
-            CONTACT ME
-          </a>
+          <div className="btn-container ml-">
+            <a
+              href="/contact"
+              className="btn inline-block bg-main-color text-white py-2 px-6 rounded-md hover:bg-opacity-90 transition"
+            >
+              CONTACT ME
+            </a>
+          </div>
         </div>
 
         <div className="home-img mt-6 lg:mt-40 flex justify-center">
