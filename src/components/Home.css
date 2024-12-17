@@ -150,10 +150,11 @@ span {
   background-color: var(--main-color);
 }
 /* CSS for screens less than or equal to 320px */
-@media (max-width: 320px) {
+@media (max-width: 520px) {
   .home-content h1 {
-    font-size: 1rem; /* Adjust heading size */
-    margin-top: 1rem; /* Adjust margin for spacing */
+    font-size: 3rem; /* Adjust heading size */
+    margin-top: 2rem; /* Adjust margin for spacing */
+    margin-right: 70px;
   }
   
   .home-content h3 {
@@ -163,15 +164,15 @@ span {
   .social-icons a {
     font-size: 1rem; /* Even smaller font size for icons */
     padding: 0.4rem; /* Reduce padding to shrink the circle size */
-    width: 1rem;  /* Smaller width and height to shrink the circle */
-    height: 1rem; /* Equal width and height to maintain circular shape */
-    background-color: #f0f0f0; /* Background color for the circle */
+    width: 2rem;  /* Smaller width and height to shrink the circle */
+    height: 2rem; /* Equal width and height to maintain circular shape */
     border-radius: 50%; /* Make it circular */
     text-align: center;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0; /* Prevent icons from shrinking */
+    margin-right: 15px;
   }
   .social-icons {
     display: flex;
@@ -183,19 +184,28 @@ span {
 
   .btn-container {
     display: flex;
-    justify-content: center; /* Center the button horizontally */
-    align-items: center;     /* Center the button vertically (if needed) */
-    width: 100%;             /* Ensure it takes up full width */
-    height: 100vh;           /* Optional: If you want the button in the middle of the screen vertically */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    transform: translateY(-50%);
+    margin-right: 70px;
   }
 
   .btn {
-    padding: 0.5rem 1rem; /* Adjust button size */
+    padding: 0.25rem 0.5rem; /* Smaller padding */
+    font-size: 0.875rem; /* Smaller font size (14px) */
+    line-height: 1; /* Adjust line height */
+    margin-right: 80px;
   }
 
   .home-img video {
     width: 90vw; /* Adjust video size for small screens */
     transform: scale(1); /* Reset zoom effect */
+   
+  }
+  .home-img {
+    margin-top: -90px; /* Move the video slightly upwards */
   }
 }
 

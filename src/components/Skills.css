@@ -107,7 +107,7 @@
     margin-top: 2rem;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 520px) {
     .ml-60 {
       margin-left: auto; /* Automatically adjusts margin */
       margin-right: auto;
@@ -118,6 +118,20 @@
     .skills-3d-cube {
       width: 150px;
       height: 150px;
+    }
+    .radial-chart {
+      width: 120px;
+      height: 120px;
+    }
+    .skills-cards-container {
+      justify-content: flex-start;
+    }
+    .skills-3d-cube {
+      width: 120px;
+      height: 120px;
+    }
+    .container {
+      padding: 10px;
     }
   }
   
@@ -143,28 +157,7 @@
   .progress-path {
     transition: stroke-dashoffset 0.5s ease;
     transform: rotate(90deg);
+    
   }
   
-  
-  @media screen and (min-width: 768px) {
-    .skills-cards-container {
-      justify-content: flex-start;
-    }
-  }
-  @media (max-width: 480px) {
-    .skills-3d-cube {
-      width: 120px;
-      height: 120px;
-    }
-    .container {
-      padding: 10px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-      .radial-chart {
-        width: 120px;
-        height: 120px;
-      }
-    }
   
