@@ -1,3 +1,6 @@
+@import "boxicons/css/boxicons.min.css";
+
+
 .logo {
   font-size: 2rem; /* Adjusts the logo font size */
   color: var(--text-color); /* Uses the text color variable */
@@ -162,7 +165,7 @@ span {
   }
 
   .social-icons a {
-    font-size: 1rem; /* Even smaller font size for icons */
+    font-size: 1.5rem; /* Even smaller font size for icons */
     padding: 0.4rem; /* Reduce padding to shrink the circle size */
     width: 2rem;  /* Smaller width and height to shrink the circle */
     height: 2rem; /* Equal width and height to maintain circular shape */
@@ -176,9 +179,9 @@ span {
   }
   .social-icons {
     display: flex;
-    justify-content: space-evenly; /* Ensure icons are spaced out evenly */
+   /* Ensure icons are spaced out evenly */
     align-items: center;
- 
+    justify-content: center;
     flex-wrap: nowrap; /* Prevent icons from wrapping to the next line */
   }
 

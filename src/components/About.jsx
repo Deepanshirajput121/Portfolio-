@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Loader from "./Loader";
-import './about.css';
+import "./about.css";
 
 const About = () => {
   const [loading, setLoading] = useState(true); // Loader state
@@ -50,9 +50,8 @@ const About = () => {
           <p className="text-xl leading-7 mb-6">
             I am a skilled web designer and{" "}
             <strong>full stack developer</strong> with over 1 year of experience
-            in both{" "}
-            <span className="text-[var(--main-color)]">frontend</span> and{" "}
-            <span className="text-[var(--main-color)]">backend</span>{" "}
+            in both <span className="text-[var(--main-color)]">frontend</span>{" "}
+            and <span className="text-[var(--main-color)]">backend</span>{" "}
             development. My passion lies in creating captivating website designs
             and implementing seamless functionality. On the frontend, I
             specialize in building responsive and visually appealing websites
@@ -73,13 +72,20 @@ const About = () => {
           </p>
         </div>
 
-        {/* Button */}
-        <a
-          href="#contact"
-          className="btn inline-block bg-[var(--main-color)] text-white py-3 px-8 rounded-md shadow-md hover:bg-opacity-90 transition-all"
-        >
-          More About Me
-        </a>
+{/* CV View Link */}
+<p className="text-xl font-medium text-white">
+  Click on these tabs to learn more ABOUT ME! Also, take a look at my CV below:
+</p>
+
+<a
+  href="/public/images/Deepanshi.pdf" // Replace this with your actual CV link
+  className="text-[var(--main-color)] underline hover:opacity-90 transition-all"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  View My CV
+</a>
+
       </div>
 
       {/* Cube Section */}
