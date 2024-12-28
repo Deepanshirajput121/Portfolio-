@@ -46,7 +46,9 @@ function Navbar() {
           D
         </div>
         {/* Text for "eepanshi" */}
-        <span style={{ color: "white", letterSpacing: "0.1em" }}>Deepanshi</span>
+        <span style={{ color: "white", letterSpacing: "0.1em" }}>
+          Deepanshi
+        </span>
       </a>
 
       {/* Menu Icon for Mobile - For small screen */}
@@ -73,6 +75,12 @@ function Navbar() {
             className="text-white block py-2 lg:py-0 hover: transition duration-200"
           >
             About Me
+          </Link>
+          <Link
+            to="/Projects"
+            className="text-white block py-2 lg:py-0 hover: transition duration-200"
+          >
+            Projects
           </Link>
           <Link
             to="/skills"

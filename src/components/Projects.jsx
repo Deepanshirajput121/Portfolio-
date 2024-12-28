@@ -3,11 +3,28 @@ import React from "react";
 const Projects = () => {
   const projectData = [
     {
-      title: "Amazon Clone",
+      title: "Ecommerce-Website",
       description:
-      "A fully responsive e-commerce site with product listings, user authentication, and shopping cart features.",
-      imageUrl: "/images/Amazon.png",
-      repoLink: "https://deepanshirajput121.github.io/Amazon_Clone/",
+        "A fully responsive e-commerce site with product listings, user authentication, and shopping cart features.",
+      imageUrl: "/images/ecomm.png",
+      repoLink: "https://ecommerce-website-theta-black.vercel.app/",
+      liveLink: "https://ecommerce-website-theta-black.vercel.app/",  // Replace with real link
+    },
+    {
+      title: "Rock-Paper-Scissors",
+      description:
+        "A simple and fun Rock Paper Scissors game where players can compete against the computer.",
+      imageUrl: "/images/Game.png",
+      repoLink: "https://game-ten-lyart.vercel.app/",
+      liveLink: "https://game-ten-lyart.vercel.app/",  // Replace with real link
+    },
+    {
+      title: "Real Vision",
+      description:
+        "An event management service-based website that provides DJ, sound system, and lighting services.",
+      imageUrl: "/images/realvision.png",
+      repoLink: "https://real-vision-iota.vercel.app", // Real link
+      liveLink: "https://real-vision-iota.vercel.app",  // Replace with real link
     },
     {
       title: "Netflix Clone",
@@ -15,20 +32,7 @@ const Projects = () => {
         "A streaming platform with the ability to browse and view videos.",
       imageUrl: "/images/Netflex.png",
       repoLink: "https://deepanshirajput121.github.io/Netflix_Clone/",
-    },
-    {
-      title: "Rock-Paper-Scissors",
-      description:
-        "A simple and fun Rock Paper Scissors game where players can compete against the computer.",
-      imageUrl: "/images/Game.png",
-      repoLink: "https://deepanshirajput121.github.io/Game/",
-    },
-    {
-      title: "Real Vision",
-      description:
-        "An event management service-based website that provides DJ, sound system, and lighting services.",
-      imageUrl: "/images/realvision.png",
-      repoLink: "https://github.com/Deepanshirajput121/real-vision",
+      liveLink: "https://your-live-link.com/netflix-clone",  // Replace with real link
     },
   ];
 
@@ -52,12 +56,12 @@ const Projects = () => {
             <p className="text-gray-600 my-2">{project.description}</p>
             <div className="flex justify-end mt-4">
               <a
-                href={project.repoLink}
+                href={project.liveLink}  // Changed to liveLink
                 className="text-blue-500 hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GitHub Repo
+                View Project
               </a>
             </div>
           </div>
