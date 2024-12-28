@@ -87,9 +87,7 @@ const Skills = () => {
       </h2>
 
       {/* Responsive Layout */}
-      <div
-        className="flex flex-col lg:flex-row justify-center items-center lg:items-start lg:w-[90%] mx-auto gap-10"
-      >
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start lg:w-[90%] mx-auto gap-10">
         {/* Cube Section */}
         <div
           className="relative w-[250px] h-[250px] lg:w-[350px] lg:h-[350px]"
@@ -192,29 +190,32 @@ const Skills = () => {
             in-depth knowledge of web development.
           </p>
 
-        <div className="skill-item">
-          <p className="text-lg font-light mt-2">
-            <span className="font-semibold">SOFT SKILLS:</span>
-            <span className="text-[var(--main-color)]">
-              {" "}
-              Effective Communication
-            </span>
-            ,<span className="text-[var(--main-color)]"> Teamwork</span>,
-            <span className="text-[var(--main-color)]">
-              {" "}
-              Team Collaboration
-            </span>
-            , Presentation, Time Management, Leadership, Ability to
-            troubleshoot,
-            <span className="text-[var(--main-color)]">
-              {" "}
-              Problem-Solving Skills
-            </span>
-            , and
-            <span className="text-[var(--main-color)]"> Critical Thinking</span>
-            .
-          </p>
-        </div>
+          <div className="skill-item">
+            <p className="text-lg font-light mt-2">
+              <span className="font-semibold">SOFT SKILLS:</span>
+              <span className="text-[var(--main-color)]">
+                {" "}
+                Effective Communication
+              </span>
+              ,<span className="text-[var(--main-color)]"> Teamwork</span>,
+              <span className="text-[var(--main-color)]">
+                {" "}
+                Team Collaboration
+              </span>
+              , Presentation, Time Management, Leadership, Ability to
+              troubleshoot,
+              <span className="text-[var(--main-color)]">
+                {" "}
+                Problem-Solving Skills
+              </span>
+              , and
+              <span className="text-[var(--main-color)]">
+                {" "}
+                Critical Thinking
+              </span>
+              .
+            </p>
+          </div>
         </div>
       </div>
     </section>

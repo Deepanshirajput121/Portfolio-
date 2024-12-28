@@ -14,7 +14,7 @@
 }
 
 .navbar a {
-  font-size: 1.6rem; /* Font size for navigation links */
+  font-size: 1.4rem; /* Font size for navigation links */
   color: var(--text-color); /* Uses the text color variable */
   margin-left: 4rem; /* Space between navigation links */
   font-weight: 500; /* Sets a medium font weight */
@@ -30,7 +30,6 @@
 
 .navbar a{
   display: block;
-  font-size: 1.5rem;
   margin: 1rem 3;
 }
 .navbar a:hover,
@@ -211,7 +210,40 @@ span {
     margin-top: -90px; /* Move the video slightly upwards */
   }
 }
+.navbar {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.navbar .projects {
+  display: block;
+}
 
+@media only screen and (max-width: 768px) {
+  .navbar .projects {
+    display: block;
+    /* Ensure link is visible */
+  }
+}
+/* Mobile specific styling */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1.5rem; /* Space between items */
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    display: none; /* Initially hide the navbar on small screens */
+    flex-direction: column;
+  }
 
+  .navbar.active {
+    display: flex; /* Show the navbar when it's active */
+  }
 
-
+  .menu-icon {
+    display: block; /* Show the menu icon */
+    cursor: pointer;
+  }
+}

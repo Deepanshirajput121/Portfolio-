@@ -9,7 +9,7 @@ const About = () => {
     // Loader logic with a 2-second delay
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -72,20 +72,20 @@ const About = () => {
           </p>
         </div>
 
-{/* CV View Link */}
-<p className="text-xl font-medium text-white">
-  Click on these tabs to learn more ABOUT ME! Also, take a look at my CV below:
-</p>
+        {/* CV View Link */}
+        <p className="text-xl font-medium text-white">
+          Click on these tabs to learn more ABOUT ME! Also, take a look at my CV
+          below:
+        </p>
 
-<a
-  href="/public/images/Deepanshi.pdf" // Replace this with your actual CV link
-  className="text-[var(--main-color)] underline hover:opacity-90 transition-all"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  View My CV
-</a>
-
+        <a
+          href="/public/images/Deepanshi.pdf" // Replace this with your actual CV link
+          className="text-[var(--main-color)] underline hover:opacity-90 transition-all"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View My CV
+        </a>
       </div>
 
       {/* Cube Section */}

@@ -1,0 +1,10 @@
+.animate-char {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+  }
+  
+  .animate-char:hover {
+    transform: translateY(-10px); /* Move upwards when hovered */
+  }
+  

@@ -18,7 +18,7 @@ const Contact = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // Show the loader for 2 seconds
+    }, 1000); // Show the loader for 2 seconds
     return () => clearTimeout(timer); // Clean up on unmount
   }, []);
 
