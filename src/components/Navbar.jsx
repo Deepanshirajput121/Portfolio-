@@ -5,7 +5,7 @@ import "./Home.css";
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLargeScreen, setIsLargeScreen] = useState(false); // For checking large screens
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   // Toggle menu visibility
   const toggleMenu = () => {
@@ -16,7 +16,7 @@ function Navbar() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      setIsLargeScreen(width > 1027); // If screen width > 1027px, show navbar as flex
+      setIsLargeScreen(width > 1027);
     };
 
     // Initial check
@@ -54,19 +54,19 @@ function Navbar() {
       {/* Navbar Links for Large Screens */}
       {isLargeScreen && (
         <nav className="hidden lg:flex lg:items-center lg:justify-end space-x-8">
-          <Link to="/" className="text-white block py-2 lg:py-0 hover: transition duration-200">
+          <Link to="/" className="text-white block py-2 lg:py-0 transition duration-200">
             Home
           </Link>
-          <Link to="/about" className="text-white block py-2 lg:py-0 hover: transition duration-200">
+          <Link to="/about" className="text-white block py-2 lg:py-0 transition duration-200">
             About Me
           </Link>
-          <Link to="/projects" className="text-white block py-2 lg:py-0 hover: transition duration-200">
+          <Link to="/projects" className="text-white block py-2 lg:py-0 transition duration-200">
             Projects
           </Link>
-          <Link to="/skills" className="text-white block py-2 lg:py-0 hover: transition duration-200">
+          <Link to="/skills" className="text-white block py-2 lg:py-0 transition duration-200">
             Skills
           </Link>
-          <Link to="/contact" className="text-white block py-2 lg:py-0 hover: transition duration-200">
+          <Link to="/contact" className="text-white block py-2 lg:py-0 transition duration-200">
             Contact
           </Link>
         </nav>
@@ -75,44 +75,42 @@ function Navbar() {
       {/* Navbar Links for Small Screens (When Menu is Open) */}
       {!isLargeScreen && (
         <nav
-          className={`navbar absolute top-0 left-0 w-full bg-black lg:bg-transparent transition-all duration-300 ease-in-out z-50 ${isMenuOpen ? "block" : "hidden"}`}
-          style={{
-            height: isMenuOpen ? "auto" : "0", // Slide effect for menu
-            overflow: "hidden", // Prevent overflow when hidden
-          }}
+          className={`absolute top-[60px] left-0 w-full bg-black transition-all duration-300 ease-in-out z-50 ${
+            isMenuOpen ? "block" : "hidden"
+          }`}
         >
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center">
             <Link
               to="/"
-              className="text-white block py-4 hover: transition duration-200"
+              className="text-white block py-4 transition duration-200"
               onClick={() => setIsMenuOpen(false)} // Close menu on link click
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-white block py-4 hover: transition duration-200"
+              className="text-white block py-4 transition duration-200"
               onClick={() => setIsMenuOpen(false)} // Close menu on link click
             >
               About Me
             </Link>
             <Link
-              to="/projects" // "Projects" is now shown before "Skills"
-              className="text-white block py-4 hover: transition duration-200"
+              to="/projects"
+              className="text-white block py-4 transition duration-200"
               onClick={() => setIsMenuOpen(false)} // Close menu on link click
             >
               Projects
             </Link>
             <Link
               to="/skills"
-              className="text-white block py-4 hover: transition duration-200"
+              className="text-white block py-4 transition duration-200"
               onClick={() => setIsMenuOpen(false)} // Close menu on link click
             >
               Skills
             </Link>
             <Link
               to="/contact"
-              className="text-white block py-4 hover: transition duration-200"
+              className="text-white block py-4 transition duration-200"
               onClick={() => setIsMenuOpen(false)} // Close menu on link click
             >
               Contact
